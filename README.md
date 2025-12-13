@@ -4,6 +4,8 @@ Turn based trick-taking card game.
 
 ## Server
 
+Implemented with web sockets, the Euchre Server listens to HTTP requests from the client, and broadcasts messages back to client.
+
 The Euchre Server is a Spring Boot 4 project written in Java 21.
 
 ```bash
