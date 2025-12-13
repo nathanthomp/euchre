@@ -1,0 +1,4 @@
+client/.angular
+client/dist
+client/node_modules
+server/target
