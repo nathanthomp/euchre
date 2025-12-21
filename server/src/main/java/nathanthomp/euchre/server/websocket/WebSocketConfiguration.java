@@ -1,4 +1,4 @@
-package nathanthomp.euchre.server;
+package nathanthomp.euchre.server.websocket;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
