@@ -13,9 +13,12 @@ public class Trick {
     private final Player leader;
     private final CardSuit trump;
 
+    private Player currentPlayer;
+
     public Trick(Player leader, CardSuit trump) {
         this.leader = leader;
         this.trump = trump;
+        this.currentPlayer = leader;
     }
 
     public void playCard(Player player, Card card) {

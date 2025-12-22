@@ -60,7 +60,6 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
             Game game = this.gameRegistry.getGame();
             List<Event> events = action.apply(game);
-
             for (Event event : events) {
                 this.eventDispatcher.dispatch(game, event, sessions);
             }
@@ -76,7 +75,6 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
         Game game = this.gameRegistry.getGame();
         List<Event> events = action.apply(game);
-        // List<Event> events = game.apply(action);
 
         for (Event event : events) {
             this.eventDispatcher.dispatch(game, event, sessions);

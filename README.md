@@ -6,7 +6,11 @@ To start playing this game, a client must connect to the server. Once this conne
 
 Once there are 4 clients connected to the server, the game can start. If any of the 4 clients leave or disconnect, the game will be paused. In the time that there are greater than 0 but less than 4 clients, the game will be in a waiting state.
 
-## Messages
+## Understanding the Codebase
+
+### Actions
+
+Actions are parsed messages that come into the websocket.
 
 ```bash
 # JOIN
@@ -14,6 +18,12 @@ Once there are 4 clients connected to the server, the game can start. If any of 
 
 # LEAVE
 {"type": "LEAVE"}
+
+```
+
+### Events
+
+```bash
 
 ```
 

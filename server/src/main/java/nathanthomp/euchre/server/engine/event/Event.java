@@ -4,7 +4,19 @@ import java.util.Map;
 
 import nathanthomp.euchre.server.engine.game.GameState;
 
+/**
+ * Implement Builder pattern here
+ */
 public class Event {
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+    }
+
     public static Event forGame(EventType type, GameState state, Map<String, Object> payload) {
         return new Event(type, state, EventTarget.forGame(), payload);
     }

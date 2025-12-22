@@ -19,6 +19,8 @@ public class Hand {
 
     private List<Card> kitty;
 
+    private Player currentBidder;
+
     public Hand(CardSuit trump, Player dealer) {
         this.trump = trump;
         this.dealer = dealer;
@@ -42,5 +44,13 @@ public class Hand {
 
     public Card getUpcard() {
         return this.kitty.remove(0);
+    }
+
+    public Player getCurrentBidder() {
+        return this.currentBidder;
+    }
+
+    public void setCurrentBidder(Player newBidder) {
+        this.currentBidder = newBidder;
     }
 }

@@ -8,10 +8,15 @@ import org.springframework.web.socket.WebSocketSession;
 import nathanthomp.euchre.server.engine.event.Event;
 import nathanthomp.euchre.server.engine.event.EventType;
 import nathanthomp.euchre.server.engine.game.Game;
+import nathanthomp.euchre.server.engine.game.GameState;
 import nathanthomp.euchre.server.engine.player.Player;
 import nathanthomp.euchre.server.engine.player.PlayerRegistry;
 import nathanthomp.euchre.server.engine.team.Team;
 import tools.jackson.databind.JsonNode;
+
+/**
+ * This is where we validate JSON fields
+ */
 
 public class JoinAction implements Action {
     private final PlayerRegistry playerRegistry;
@@ -39,6 +44,14 @@ public class JoinAction implements Action {
         Team team = game.getTeam(teamId);
 
         /**
+         * Check if game is in waiting state
+         */
+        if (game.getState() != GameState.WAITING) {
+            return List.of(Event.forPlayer(this.session.getId(), game.getState(), EventType.ERROR,
+                    Map.of("message", "Invalid action: game is not in a WAITING state")));
+        }
+
+        /**
          * Check if player ID is already taken
          */
         if (this.playerRegistry.playerExistsById(playerId)) {
@@ -59,6 +72,7 @@ public class JoinAction implements Action {
 
         return List.of(
                 Event.forGame(EventType.PLAYER_JOINED, game.getState(),
-                        Map.of("message", player.getId() + " has joined team " + teamId)));
+                        Map.of("message", player.getId() + " has joined team " + teamId, "gameFull",
+                                game.getPlayers().size() == 4)));
     }
 }

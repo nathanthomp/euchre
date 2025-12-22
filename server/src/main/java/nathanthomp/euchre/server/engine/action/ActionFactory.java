@@ -26,6 +26,9 @@ public class ActionFactory {
             case "START_GAME":
                 // {"type":"START_GAME"}
                 return new StartGameAction(session);
+            case "PASS":
+                // {"type":"PASS"}
+                return new PassAction(this.playerRegistry, session);
             default:
                 return new UnknownAction(type, session.getId());
         }

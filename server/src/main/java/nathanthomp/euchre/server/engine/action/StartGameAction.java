@@ -65,16 +65,18 @@ public class StartGameAction implements Action {
          * Event for Player: Here are your cards
          */
         events.add(Event.forGame(EventType.GAME_STARTED, game.getState(), Map.of("message", "The game has started")));
-        events.add(Event.forGame(EventType.PLAYER_DEALING, game.getState(),
-                Map.of("message", game.getCurrentHand().getDealer().getId() + " is dealing")));
 
         for (Player player : game.getPlayers()) {
-            events.add(Event.forPlayer(player.getSessionId(), game.getState(), EventType.PLAYER_CARDS_DEALT,
-                    Map.of("cards", player.getCards().toString())));
+            events.add(Event.forPlayer(player.getSessionId(), game.getState(), EventType.CARDS_DEALT, Map.of(
+                    "cards", player.getCards().toString(),
+                    "upcard", game.getCurrentHand().getUpcard().toString(),
+                    "by", game.getCurrentHand().getDealer().getId())));
         }
 
-        events.add(Event.forGame(EventType.UPCARD_SHOWN, game.getState(),
-                Map.of("upcard", game.getCurrentHand().getUpcard())));
+        /**
+         * After dealing
+         */
+        game.changeState(GameState.BIDDING);
 
         return events;
     }
