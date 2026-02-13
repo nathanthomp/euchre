@@ -1,0 +1,14 @@
+{
+    "name": "euchre-server",
+    "version": "1.0.0",
+    "scripts": {
+        "clean": "npx rimraf dist",
+        "build": "tsc -p tsconfig.json",
+        "test": "jest --preset ts-jest --coverage --coverageReporters=text"
+    },
+    "devDependencies": {
+        "@types/jest": "^30.0.0",
+        "jest": "^30.2.0",
+        "ts-jest": "^29.4.6"
+    }
+}
