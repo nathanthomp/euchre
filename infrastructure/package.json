@@ -1,0 +1,17 @@
+{
+    "name": "euchre-infrastructure",
+    "version": "1.0.0",
+    "scripts": {
+        "clean": "npx rimraf cdk.out",
+        "synth": "cdk synth --app \"npx ts-node src/euchre.ts\"",
+        "deploy": "cdk deploy --app \"npx ts-node src/euchre.ts\" --require-approval never"
+    },
+    "devDependencies": {
+        "@types/node": "^25.2.3",
+        "ts-node": "^10.9.2"
+    },
+    "dependencies": {
+        "aws-cdk-lib": "^2.238.0",
+        "constructs": "^10.4.5"
+    }
+}
