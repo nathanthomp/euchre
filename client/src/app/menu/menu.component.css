@@ -1,0 +1,30 @@
+main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+}
+
+#left-side {
+    align-items: center;
+}
+
+.divider {
+    width: 1px;
+    background: var(--red-to-pink-to-purple-vertical-gradient);
+    margin-inline: 0.5rem;
+}
+
+#right-side {
+    width: 20vw;
+}
+
+.error {
+    color: var(--hot-red);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}

@@ -1,0 +1,44 @@
+<main class="pill-group">
+    <div style="padding: 1rem" *ngIf="loading()">
+        <div class="pill group">Loading...</div>
+    </div>
+    <div *ngIf="error">
+        <div class="pill error group">Oh No! Something Went Wrong.</div>
+        <div class="pill error group" style="margin-top: 1rem">{{ error }}</div>
+        <div class="horizontal-group">
+            <button class="pill" (click)="retry()">Retry</button>
+            <button class="pill" (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+    <div id="container" *ngIf="!loading() && !error">
+        <header>
+            <div class="header-left">
+                <div class="pill">{{ username }}</div>
+                <div class="pill">{{ gamecode }}</div>
+            </div>
+            <div class="header-right">
+                <button class="pill" (click)="leaveGame()">Leave</button>
+            </div>
+        </header>
+        <section id="board">
+            <board [state]="state" />
+        </section>
+        <section id="interact">
+            <chat
+                [username]="username"
+                [chatMessages]="chatMessages"
+                (sendChatMessageEvent)="onChatMessage($event)"
+            />
+            <div *ngIf="state == 'WAITING'">
+                <button class="pill" (click)="startGame()">Start Game</button>
+            </div>
+            <div *ngIf="state == 'BIDDING'">
+                <div class="button-group">
+                    <button class="pill" (click)="pass()">Pass</button>
+                    <button class="pill" (click)="order()">Order</button>
+                    <button class="pill" (click)="call()">Call</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

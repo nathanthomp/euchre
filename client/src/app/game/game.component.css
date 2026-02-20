@@ -1,0 +1,126 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+header {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Debugging */
+    background-color: antiquewhite;
+}
+
+.header-left {
+    display: flex;
+    gap: 1rem;
+}
+
+.header-right {
+    display: flex;
+}
+
+.header-bottom {
+
+}
+
+section {
+    display: flex;
+    gap: 1rem;
+}
+
+#board {
+    flex: 1;
+
+    /* Debugging */
+    background-color: antiquewhite;
+}
+
+#interact {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    /* Debugging */
+    background-color: antiquewhite;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Chat */
+
+chat {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 25vh;
+    margin-top: 0;
+    margin-right: 0;
+}
+
+.chat-title {
+    justify-content: center
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: .5rem;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+.chat-message {
+
+}
+
+.chat-form {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.chat-form input {
+    width: 100%;
+}
+
+/* Board */
+
+
+
+.sub-header {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.divider-horizontal {
+    height: 1px;
+    background: var(--red-to-pink-to-purple-horizontal-gradient);
+    margin-block: 0.5rem;
+}
+
+.container {
+    margin: 1rem;
+}
+
+.horizontal-group {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
