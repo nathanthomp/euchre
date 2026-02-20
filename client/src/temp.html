@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <style>
+            body {
+                /* Based on top level element */
+                margin: 0;
+            }
+            main {
+                /* Needed */
+                padding: 1rem;
+            }
+            section {
+            }
+            div .content {
+            }
+            div .page {
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+            }
+            header {
+                height: 5vh;
+
+                /* Debugging */
+                background-color: antiquewhite;
+            }
+
+            div .board {
+                flex: 1;
+
+                /* Debugging */
+                background-color: lightcoral;
+            }
+            footer {
+                height: 10vh;
+                /* Debugging */
+                background-color: lightblue;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section>
+                <div class="content">
+                    <div class="page">
+                        <header>Header</header>
+                        <div class="board">Board</div>
+                        <footer>Footer</footer>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
