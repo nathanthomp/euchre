@@ -1,0 +1,85 @@
+<main>
+    <div class="content pill-group">
+        <div id="left-side" class="group">
+            <button class="pill" (click)="showCreate()">Create Game</button>
+            <button class="pill" (click)="showJoin()">Join Game</button>
+        </div>
+        <div class="divider" *ngIf="active != 'none'"></div>
+        <div id="right-side" *ngIf="active != 'none'">
+            <div class="group" *ngIf="active == 'create'">
+                <h3>Create a New Game</h3>
+                <form [formGroup]="createForm" (ngSubmit)="submitCreate()">
+                    <div class="group">
+                        <div>
+                            <label class="pill-label" for="username">
+                                User Name
+                            </label>
+                            <input
+                                class="pill"
+                                id="username"
+                                type="text"
+                                formControlName="username"
+                            />
+                            <div
+                                class="error"
+                                *ngIf="
+                                    submitted &&
+                                    createForm.controls.username.invalid
+                                "
+                            >
+                                Username required (min 2 characters)
+                            </div>
+                        </div>
+                        <button class="pill" type="submit">Create</button>
+                    </div>
+                </form>
+            </div>
+            <div class="group" *ngIf="active == 'join'">
+                <form [formGroup]="joinForm" (ngSubmit)="submitJoin()">
+                    <div class="group">
+                        <h3>Join an Existing Game</h3>
+                        <div>
+                            <label class="pill-label" for="username">
+                                User Name
+                            </label>
+                            <input
+                                class="pill"
+                                id="username"
+                                type="text"
+                                formControlName="username"
+                            />
+                            <div
+                                class="error"
+                                *ngIf="
+                                    submitted &&
+                                    joinForm.controls.username.invalid
+                                "
+                            >
+                                Username required (min 2 characters)
+                            </div>
+                            <label class="pill-label" for="gamecode">
+                                Game Code
+                            </label>
+                            <input
+                                class="pill"
+                                id="gamecode"
+                                type="text"
+                                formControlName="gamecode"
+                            />
+                            <div
+                                class="error"
+                                *ngIf="
+                                    submitted &&
+                                    joinForm.controls.gamecode.invalid
+                                "
+                            >
+                                Game Code required
+                            </div>
+                        </div>
+                        <button class="pill" type="submit">Join</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

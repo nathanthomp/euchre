@@ -1,0 +1,19 @@
+<div class="pill chat-title">Chat</div>
+<div class="chat-messages">
+    <div class="chat-message" *ngFor="let chatMessage of chatMessages()">
+        <strong>{{ chatMessage.username }}</strong
+        >: {{ chatMessage.message }}
+    </div>
+</div>
+<form [formGroup]="chatForm" (submit)="sendChatMessage()" class="chat-form">
+    <input
+        class="pill"
+        id="message"
+        type="text"
+        formControlName="message"
+        placeholder="Message"
+    />
+    <button class="pill" type="submit" [disabled]="chatForm.invalid">
+        Send
+    </button>
+</form>
