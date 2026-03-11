@@ -3,8 +3,9 @@
     "version": "1.0.0",
     "scripts": {
         "clean": "npx rimraf cdk.out",
-        "synth": "cdk synth --app \"npx ts-node src/euchre.ts\"",
-        "deploy": "cdk deploy --app \"npx ts-node src/euchre.ts\" --require-approval never"
+        "build": "cdk synth --app \"npx ts-node src/euchre.ts\" --all",
+        "deploy": "cdk deploy --app \"npx ts-node src/euchre.ts\" --all --require-approval never",
+        "destroy": "cdk destroy --app \"npx ts-node src/euchre.ts\" --all"
     },
     "devDependencies": {
         "@types/node": "^25.2.3",
